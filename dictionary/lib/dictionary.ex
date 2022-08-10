@@ -2,21 +2,9 @@ defmodule Dictionary do
   @moduledoc """
   This is the Dictionary module
   """
-
-  @doc """
-  Prints a list of words
-
-  Returns: `:ok`
-
-  ## Examples
-    iex> Dictionary.word_list()
-    :ok
-
-  """
-  def word_list do
-    words = File.read!("assets/words.txt")
-    String.split(words, ~r/\n/, trim: true)
-  end
+  @word_list "assets/words.txt"
+             |> File.read!()
+             |> String.split(~r/\n/, trim: true)
 
   @doc """
   Prints a random word from words list
@@ -29,6 +17,7 @@ defmodule Dictionary do
 
   """
   def random_word do
-    Enum.random(word_list())
+    @word_list
+    |> Enum.random()
   end
 end
