@@ -14,4 +14,7 @@ defmodule Lists do
 
   def square([]), do: []
   def square([h | t]), do: [h * h | square(t)]
+
+  def map([], _func), do: []
+  def map([h|t], func), do: [func.(h) | map(t, func)]
 end
