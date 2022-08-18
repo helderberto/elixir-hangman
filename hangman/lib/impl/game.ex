@@ -1,5 +1,5 @@
 defmodule Hangman.Impl.Game do
-  @type t :: %Hangman.Impl.Game{
+  @type t :: %__MODULE__{
           turns_left: integer,
           game_state: Hangman.state(),
           letters: list(String.t()),
@@ -13,9 +13,15 @@ defmodule Hangman.Impl.Game do
     used: MapSet.new()
   )
 
+  @spec new_game :: t
   def new_game do
-    %Hangman.Impl.Game{
-      letters: Dictionary.random_word() |> String.codepoints()
+    new_game(Dictionary.random_word())
+  end
+
+  @spec new_game(String.t()) :: t
+  def new_game(word) do
+    %__MODULE__{
+      letters: word |>  String.codepoints()
     }
   end
 end
