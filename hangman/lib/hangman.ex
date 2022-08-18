@@ -1,7 +1,4 @@
 defmodule Hangman do
-  @moduledoc """
-  Documentation for `Hangman`.
-  """
   @type state :: :initializing | :won | :lost | :good_guess | :bad_guess | :already_used
   @type game :: any
   @type tally :: %{
@@ -13,6 +10,7 @@ defmodule Hangman do
 
   @spec new_game() :: game
   def new_game do
+    Hangman.Impl.Game.new_game()
   end
 
   @spec make_move(game, String.t()) :: {game, tally}
