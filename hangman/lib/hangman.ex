@@ -13,9 +13,8 @@ defmodule Hangman do
         }
 
   @spec new_game() :: game
-  def new_game do
-    Game.new_game()
-  end
+  def new_game
+  defdelegate new_game, to: Game
 
   @spec make_move(game, String.t()) :: {game, tally}
   def make_move(_game, _guess) do
