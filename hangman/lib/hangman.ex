@@ -1,4 +1,8 @@
 defmodule Hangman do
+  # Get the last part of the path, on this case "Game" will be the alias
+  # or you can set with `alias Hangman.Impl.Game, as: Game`
+  alias Hangman.Impl.Game
+
   @type state :: :initializing | :won | :lost | :good_guess | :bad_guess | :already_used
   @type game :: any
   @type tally :: %{
@@ -10,7 +14,7 @@ defmodule Hangman do
 
   @spec new_game() :: game
   def new_game do
-    Hangman.Impl.Game.new_game()
+    Game.new_game()
   end
 
   @spec make_move(game, String.t()) :: {game, tally}
