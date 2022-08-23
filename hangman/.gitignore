@@ -24,3 +24,6 @@ hangman-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# VSCode files
+.elixir_ls
